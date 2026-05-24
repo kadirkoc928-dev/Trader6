@@ -352,10 +352,16 @@ else:
 
             # TABELLE
             st.dataframe(
-                df_results,
-                use_container_width=True,
-                height=650
-            )
+    df_results,
+    column_config={
+        "Chart": st.column_config.LinkColumn(
+            "Chart",
+            display_text="📈 Öffnen"
+        )
+    },
+    use_container_width=True,
+    height=650
+)
 
             # CSV DOWNLOAD
             csv = df_results.to_csv(index=False).encode('utf-8')
