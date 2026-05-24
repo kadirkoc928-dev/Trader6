@@ -235,8 +235,7 @@ def scan_one(ticker):
             'Swing-Score': score, 'RSI': round(rsi_v, 1), 'ADX': round(adx_v, 1),
             'Vol Ratio': round(vr_v, 2), 'ATR%': round(atr_p, 2),
             'SMA20': sma_s, 'MACD': macd_st,
-            'Volumen': round(dv, 0),
-'Chart': f'<a href="{tv_link(ticker)}" target="_blank">📈 Chart öffnen</a>'
+            'Volumen': round(dv, 0), 'Chart': tv_link(ticker)
         }
     except:
         return None
@@ -351,10 +350,11 @@ else:
             )
 
             # TABELLE
-            st.write(
-    df_results.to_html(escape=False, index=False),
-    unsafe_allow_html=True
-)
+            st.dataframe(
+                df_results,
+                use_container_width=True,
+                height=650
+            )
 
             # CSV DOWNLOAD
             csv = df_results.to_csv(index=False).encode('utf-8')
