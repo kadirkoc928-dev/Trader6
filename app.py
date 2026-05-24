@@ -235,7 +235,8 @@ def scan_one(ticker):
             'Swing-Score': score, 'RSI': round(rsi_v, 1), 'ADX': round(adx_v, 1),
             'Vol Ratio': round(vr_v, 2), 'ATR%': round(atr_p, 2),
             'SMA20': sma_s, 'MACD': macd_st,
-            'Volumen': round(dv, 0), 'Chart': tv_link(ticker)
+            'Volumen': round(dv, 0),
+'Chart': f'<a href="{tv_link(ticker)}" target="_blank">📈 Chart</a>'
         }
     except:
         return None
