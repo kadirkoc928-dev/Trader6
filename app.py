@@ -355,7 +355,6 @@ else:
     df_results.to_html(escape=False, index=False),
     unsafe_allow_html=True
 )
-            )
 
             # CSV DOWNLOAD
             csv = df_results.to_csv(index=False).encode('utf-8')
